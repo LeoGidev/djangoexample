@@ -83,8 +83,14 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS': {
-            'ssl': {'disabled': True},
-        },
+            'ssl': {
+                'ca': None,
+                'cert': None,
+                'key': None,
+                'disabled': True,
+            }
+}
+
     }
 }
 
