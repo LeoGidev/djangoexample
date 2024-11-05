@@ -28,11 +28,11 @@ def logout_view(request):
     return redirect('login')
 
 @user_passes_test(lambda u: u.is_superuser)
-def crear_usuario(request):
+def dash2(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         User.objects.create_user(username=username, password=password)
-        return redirect('dashboard')
-    return render(request, 'crear_usuario.html')
+        return redirect('dasboard2')
+    return render(request, 'dash2.html')
 
