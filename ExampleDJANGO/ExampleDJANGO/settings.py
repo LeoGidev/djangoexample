@@ -89,7 +89,7 @@ DATABASES = {
                 'key': None,
                 'disabled': True,
             }
-}
+        },
 
     }
 }
