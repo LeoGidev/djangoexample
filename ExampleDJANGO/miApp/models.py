@@ -6,4 +6,4 @@ class Dato(models.Model):
     ID = models.AutoField(primary_key=True)
     Dato = models.CharField(max_length=255)
     def __str__(self):
-        return f"{self.fecha} - {self.dato}"
+        return f"{self.Fecha} - {self.Dato}"
