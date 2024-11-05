@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import Dato
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import user_passes_test
 
 def login_view(request):
     if request.method == 'POST':
@@ -24,4 +26,13 @@ def dashboard(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+@user_passes_test(lambda u: u.is_superuser)
+def crear_usuario(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        User.objects.create_user(username=username, password=password)
+        return redirect('dashboard')
+    return render(request, 'crear_usuario.html')
 
