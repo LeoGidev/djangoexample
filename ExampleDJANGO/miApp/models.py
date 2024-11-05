@@ -4,3 +4,4 @@ from django.db import models
 class Dato(models.Model):
     fecha = models.DateField()
     id = models.AutoField(primary_key=True)
+    dato = models.CharField(max_length=255)
