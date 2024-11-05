@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Dashboard</h2>
+    <a href="{% url 'logout' %}">Cerrar sesión</a>
+    <table border="1">
+        <tr>
+            <th>Fecha</th>
+            <th>ID</th>
+            <th>Dato</th>
+        </tr>
+        {% for dato in datos %}
+        <tr>
+            <td>{{ dato.fecha }}</td>
+            <td>{{ dato.id }}</td>
+            <td>{{ dato.dato }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
