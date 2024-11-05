@@ -6,3 +6,8 @@ urlpatterns = [
     path('dashboard/', dashboard, name='dashboard'),
     path('logout/', logout_view, name='logout'),
 ]
+
+from .views import crear_usuario
+urlpatterns += [
+    path('crear_usuario/', crear_usuario, name='crear_usuario'),
+]
