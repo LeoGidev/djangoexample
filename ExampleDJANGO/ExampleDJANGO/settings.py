@@ -80,21 +80,17 @@ WSGI_APPLICATION = 'ExampleDJANGO.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'datosTest',  # Nombre de tu base de datos
-        'USER': 'root',       # Nombre de usuario de MySQL
-        'PASSWORD': '',       # Contraseña de MySQL 
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'NAME': 'datostest',
+        'USER': 'root',
+        'PASSWORD': 'rtqKLO081Klo',
+        'HOST': 'localhost',  # o '127.0.0.1'
+        'PORT': '3307',       # puerto por defecto de MySQL
         'OPTIONS': {
-            'ssl': {
-                'ca': None,
-                'cert': None,
-                'key': None,
-                'disabled': True,
-            }
-        }
+            'ssl': {'ca': None},  # Desactivar SSL si no es necesario
+        },
     }
 }
+
 
 
 # Password validation
