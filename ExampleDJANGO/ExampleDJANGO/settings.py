@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'ExampleDJANGO.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'datosTest',  # Nombre de tu base de datos
+        'USER': 'root',       # Nombre de usuario de MySQL
+        'PASSWORD': '',       # Contraseña de MySQL 
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
