@@ -45,21 +45,51 @@
             </div>
         </div>
 
-    <h2>Dashboard</h2>
-    <a href="{% url 'logout' %}">Cerrar sesión</a>
-    <table border="1">
-        <tr>
-            <th>Fecha</th>
-            <th>ID</th>
-            <th>Dato</th>
-        </tr>
-        {% for dato in datos %}
-        <tr>
-            <td>{{ dato.fecha }}</td>
-            <td>{{ dato.id }}</td>
-            <td>{{ dato.dato }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+        <!-- Chart -->
+        <div class="card shadow-sm">
+            <div class="card-header text-white bg-primary">
+                <h5>Gráfica de Datos</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="dataChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Chart.js Script -->
+    <script>
+        // Obtenemos los datos de Django y los convertimos a formato JavaScript
+        const fechas = [{% for dato in datos %}'{{ dato.fecha }}'{% if not forloop.last %}, {% endif %}{% endfor %}];
+        const valores = [{% for dato in datos %}{{ dato.dato }}{% if not forloop.last %}, {% endif %}{% endfor %}];
+
+        // Configuración del gráfico
+        const ctx = document.getElementById('dataChart').getContext('2d');
+        const dataChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: fechas,
+                datasets: [{
+                    label: 'Valores de Dato',
+                    data: valores,
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
 </body>
 </html>
+
