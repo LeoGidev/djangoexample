@@ -15,6 +15,9 @@
                     <div class="card-header bg-primary text-white text-center">
                         <h3>Iniciar Sesión</h3>
                     </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
     <h2>Iniciar sesión</h2>
     {% if error %}
         <p style="color: red;">{{ error }}</p>
