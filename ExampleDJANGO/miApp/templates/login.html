@@ -18,6 +18,12 @@
                     <div class="card-body">
                         <form method="post">
                             {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Usuario</label>
+                                <input type="text" class="form-control" id="username" name="username" required>
+                            </div>
+
+                            
     <h2>Iniciar sesión</h2>
     {% if error %}
         <p style="color: red;">{{ error }}</p>
