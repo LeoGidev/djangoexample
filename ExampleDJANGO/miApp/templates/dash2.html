@@ -10,6 +10,8 @@
 <body>
     <div class="container mt-5">
         <h2 class="text-center">Agregar Dato</h2>
+        <form method="POST" action="{% url 'agregar_dato' %}">
+            {% csrf_token %}
     
     
 </body>
