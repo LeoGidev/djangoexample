@@ -12,6 +12,9 @@
         <h2 class="text-center">Agregar Dato</h2>
         <form method="POST" action="{% url 'agregar_dato' %}">
             {% csrf_token %}
+            <div class="mb-3">
+                <label for="dato" class="form-label">Dato</label>
+                <input type="text" class="form-control" id="dato" name="dato" required>
     
     
 </body>
