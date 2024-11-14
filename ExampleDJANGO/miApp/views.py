@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Dato
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import user_passes_test
+from django.utils import timezone
 
 def login_view(request):
     if request.method == 'POST':
@@ -41,7 +42,7 @@ def agregar_dato(request):
         dato = request.POST.get("dato")
         fecha = timezone.now()
         # Guarda el dato en la base de datos
-        nuevo_dato = Datos(fecha=fecha, dato=dato)
+        nuevo_dato = Dato(fecha=fecha, dato=dato)
         nuevo_dato.save()
         return redirect('dashboard')  # Redirecciona a la página que prefieras
     return render(request, "dash2.html")
