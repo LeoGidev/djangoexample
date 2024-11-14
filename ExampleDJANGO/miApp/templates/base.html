@@ -12,4 +12,7 @@
         <div class="bg-light border-end" id="sidebar-wrapper" style="width: 250px;">
             <div class="sidebar-heading">Mi App</div>
             <div class="list-group list-group-flush">
-               
+                <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action">Dashboard</a>
+                <a href="{% url 'dashboard2' %}" class="list-group-item list-group-item-action">Dashboard 2</a>
+                <a href="{% url 'logout' %}" class="list-group-item list-group-item-action">Cerrar sesión</a>
+            </div>
