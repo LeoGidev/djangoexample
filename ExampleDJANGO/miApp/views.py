@@ -36,3 +36,13 @@ def dash2(request):
         return redirect('dasboard2')
     return render(request, 'dash2.html')
 
+def agregar_dato(request):
+    if request.method == "POST":
+        dato = request.POST.get("dato")
+        fecha = timezone.now()
+        # Guarda el dato en la base de datos
+        nuevo_dato = Datos(fecha=fecha, dato=dato)
+        nuevo_dato.save()
+        return redirect('dashboard')  # Redirecciona a la página que prefieras
+    return render(request, "dash2.html")
+
