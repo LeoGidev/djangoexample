@@ -34,8 +34,12 @@ def dash2(request):
         username = request.POST['username']
         password = request.POST['password']
         User.objects.create_user(username=username, password=password)
-        return redirect('dasboard2')
+        return redirect('dashboard2')
     return render(request, 'dash2.html')
+
+from django.shortcuts import render, redirect
+from django.utils import timezone
+from .models import Dato
 
 def agregar_dato(request):
     if request.method == "POST":
@@ -44,6 +48,7 @@ def agregar_dato(request):
         # Guarda el dato en la base de datos
         nuevo_dato = Dato(fecha=fecha, dato=dato)
         nuevo_dato.save()
-        return redirect('dashboard')  # Redirecciona a la página que prefieras
-    return render(request, "dash2.html")
+        return redirect('dashboard')  # Redirecciona a la página de dashboard después de agregar el dato
+    return render(request, "dash2.html")  # Asegúrate de que dash2.html exista
+
 
