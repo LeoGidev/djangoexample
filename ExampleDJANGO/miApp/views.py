@@ -37,10 +37,6 @@ def dash2(request):
         return redirect('dashboard2')
     return render(request, 'dash2.html')
 
-from django.shortcuts import render, redirect
-from django.utils import timezone
-from .models import Dato
-
 def agregar_dato(request):
     if request.method == "POST":
         dato = request.POST.get("dato")
