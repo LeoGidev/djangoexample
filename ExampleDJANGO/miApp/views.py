@@ -40,10 +40,10 @@ def dash2(request):
 def agregar_dato(request):
     if request.method == "POST":
         dato = request.POST.get("dato")
-        fecha = timezone.now()
-        print(f"Recibido dato: {dato}, Fecha: {fecha}")  # Esto imprimirá en la consola
+        Fecha = timezone.now()
+        print(f"Recibido dato: {dato}, Fecha: {Fecha}")  # Esto imprimirá en la consola
         # Guarda el dato en la base de datos
-        nuevo_dato = Dato(fecha=fecha, dato=dato)
+        nuevo_dato = Dato(fecha=Fecha, dato=dato)
         nuevo_dato.save()
         print("Dato guardado correctamente", nuevo_dato)  # Verifica si este mensaje se imprime
         return redirect('dashboard')  # Redirecciona a la página de dashboard después de agregar el dato
