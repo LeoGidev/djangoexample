@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'datostest',
         'USER': 'root',
-        'PASSWORD': 'rtqKLO081Klo',
+        'PASSWORD': '',
         'HOST': 'localhost',  # o '127.0.0.1'
         'PORT': '3307',       # puerto por defecto de MySQL
         'OPTIONS': {
