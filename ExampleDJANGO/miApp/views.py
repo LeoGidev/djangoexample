@@ -44,7 +44,7 @@ def agregar_dato(request):
         print(f"Recibido dato: {dato}, Fecha: {Fecha}")  # Esto imprimirá en la consola
         # Guarda el dato en la base de datos
         nuevo_dato = Dato(Fecha=Fecha, Dato=dato)
-        #nuevo_dato.save()
+        nuevo_dato.save()
         print("Dato guardado correctamente", nuevo_dato)  # Verifica si este mensaje se imprime
         return redirect('dashboard')  # Redirecciona a la página de dashboard después de agregar el dato
     return render(request, "dash2.html")
