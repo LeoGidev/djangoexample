@@ -41,12 +41,17 @@ def agregar_dato(request):
     if request.method == "POST":
         dato = request.POST.get("dato")
         Fecha = timezone.now()
-        print(f"Recibido dato: {dato}, Fecha: {Fecha}")  # Esto imprimirá en la consola
-        # Guarda el dato en la base de datos
-        nuevo_dato = Dato(Fecha=Fecha, Dato=dato)
-        nuevo_dato.save()
-        print("Dato guardado correctamente", nuevo_dato)  # Verifica si este mensaje se imprime
-        return redirect('dashboard')  # Redirecciona a la página de dashboard después de agregar el dato
+        print(f"Recibido dato: {dato}, Fecha: {Fecha}")
+        
+        if dato:  # Verifica que dato no esté vacío
+            # Guarda el dato en la base de datos
+            nuevo_dato = Dato(Fecha=Fecha, Dato=dato)
+            nuevo_dato.save()
+            print("Dato guardado correctamente", nuevo_dato)
+
+        datos = Dato.objects.all()  # Obtén los datos de la base de datos
+        return render(request, "dash2.html", {"datos": datos})  # Muestra los datos directamente
+
     return render(request, "dash2.html")
 
 
