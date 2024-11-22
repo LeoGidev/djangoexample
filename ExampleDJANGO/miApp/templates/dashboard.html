@@ -44,7 +44,7 @@
 </div>
 {% endblock %}
 
-
+{% block script %}
 <script>
     // Obtenemos los datos de Django y los convertimos a formato JavaScript
     const fechas = [{% for dato in datos %}'{{ dato.fecha }}'{% if not forloop.last %}, {% endif %}{% endfor %}];
@@ -74,4 +74,5 @@
         }
     });
 </script>
+{% endblock %}
 
