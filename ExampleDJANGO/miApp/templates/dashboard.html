@@ -22,8 +22,9 @@
             <tbody>
                 {% for dato in datos %}
                 <tr>
-                    <p>Hola</p>
-                    
+                    <td>{{ dato.Fecha }}</td>
+                    <td>{{ dato.ID }}</td>
+                    <td>{{ dato.Dato }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -42,4 +43,34 @@
 </div>
 
 
+
+<script>
+    // Obtenemos los datos de Django y los convertimos a formato JavaScript
+    const fechas = [{% for dato in datos %}'{{ dato.fecha }}'{% if not forloop.last %}, {% endif %}{% endfor %}];
+    const valores = [{% for dato in datos %}{{ dato.dato }}{% if not forloop.last %}, {% endif %}{% endfor %}];
+
+    // Configuración del gráfico
+    const ctx = document.getElementById('dataChart').getContext('2d');
+    const dataChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: fechas,
+            datasets: [{
+                label: 'Valores de Dato',
+                data: valores,
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
 

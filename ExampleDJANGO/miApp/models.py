@@ -1,7 +1,7 @@
 from django.db import models
 
 class Dato(models.Model):
-    Fecha = models.DateTimeField(auto_now_add=True)   # Cambié a DateTimeField para que coincida con el uso de timezone.now() en la vista
+    Fecha = models.DateField(auto_now_add=True)   
     ID = models.AutoField(primary_key=True)
     Dato = models.CharField(max_length=255)
 
