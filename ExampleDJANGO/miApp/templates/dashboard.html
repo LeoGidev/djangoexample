@@ -2,7 +2,7 @@
 
 {% block title %}Dashboard{% endblock %}
 
-
+{% block %}
 <h2 class="text-primary">Dashboard</h2>
 
 <!-- Tabla de Datos -->
@@ -22,16 +22,16 @@
             <tbody>
                 {% for dato in datos %}
                 <tr>
-                    <td>{{ dato.Fecha }}</td>
-                    <td>{{ dato.ID }}</td>
-                    <td>{{ dato.Dato }}</td>
+                    <td>{{ data.Fecha }}</td>
+                    <td>{{ data.ID }}</td>
+                    <td>{{ data.Dato }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
 </div>
-
+{% endblock %}
 <!-- Gráfico de Datos -->
 <div class="card shadow-sm">
     <div class="card-header text-white bg-primary">
