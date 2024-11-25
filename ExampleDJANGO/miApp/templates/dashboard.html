@@ -46,8 +46,21 @@
 {% block extra_scripts %}
 <script>
     // Obtenemos los datos de Django y los convertimos a formato JavaScript
-    const fechas = [{% for dato in datos %}'{{ dato.Fecha }}'{% if not forloop.last %}, {% endif %}{% endfor %}];
-    const valores = [{% for dato in datos %}{{ dato.dato }}{% if not forloop.last %}, {% endif %}{% endfor %}];
+    const rawFechas = [{% for dato in datos %}'{{ dato.Fecha }}'{% if not forloop.last %}, {% endif %}{% endfor %}];
+    const rawValores = [{% for dato in datos %}{{ dato.Dato }}{% if not forloop.last %}, {% endif %}{% endfor %}];
+
+    // Agrupar los valores por fecha
+    const dataMap = {};
+    rawFechas.forEach((fecha, index) => {
+        if (!dataMap[fecha]) {
+            dataMap[fecha] = 0;
+        }
+        dataMap[fecha] += rawValores[index];
+    });
+
+    // Extraemos las fechas y los valores sumados
+    const fechas = Object.keys(dataMap);
+    const valores = Object.values(dataMap);
 
     // Configuración del gráfico
     const ctx = document.getElementById('dataChart').getContext('2d');
@@ -72,11 +85,11 @@
             }
         }
     });
-    console.log("Fechas:", fechas);
-    console.log("Valores:", valores);
+
+    console.log("Fechas agrupadas:", fechas);
+    console.log("Valores sumados:", valores);
     console.log("Script ejecutado correctamente");
-
-
 </script>
+
 {% endblock %}
 
