@@ -64,7 +64,7 @@ def perfil_usuario(request):
         'apellido': usuario.last_name,
         'email': usuario.email,
     }
-    return render(request, 'perfil.html', context)
+    return render(request, 'profile.html', context)
 
 
 
