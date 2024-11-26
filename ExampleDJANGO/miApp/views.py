@@ -54,5 +54,17 @@ def agregar_dato(request):
 
     return render(request, "dash2.html")
 
+@login_required
+def perfil_usuario(request):
+    # Datos del usuario logueado
+    usuario = request.user  # Obtenemos al usuario actual
+
+    context = {
+        'nombre': usuario.first_name,
+        'apellido': usuario.last_name,
+        'email': usuario.email,
+    }
+    return render(request, 'perfil.html', context)
+
 
 
