@@ -36,7 +36,7 @@ def dash2(request):
         User.objects.create_user(username=username, password=password)
         return redirect('dashboard2')
     return render(request, 'dash2.html')
-
+@login_required
 def agregar_dato(request):
     if request.method == "POST":
         dato = request.POST.get("dato")
