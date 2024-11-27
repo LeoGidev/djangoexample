@@ -6,3 +6,4 @@ class PerfilForm(forms.ModelForm):
         model = Perfil
         fields = ['foto', 'descripcion', 'cumpleaños', 'telefono', 'direccion']
         widgets = {
+            'descripcion': forms.Textarea(attrs={'class': 'form-control', 'rows': 4}),
