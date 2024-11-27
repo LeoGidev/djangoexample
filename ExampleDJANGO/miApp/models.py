@@ -17,4 +17,5 @@ class Perfil(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='perfil')
     foto = models.ImageField(upload_to='fotos_perfil/', blank=True, null=True)
     descripcion = models.TextField("Sobre mí", blank=True)
-       
+    cumpleaños = models.DateField("Cumpleaños", blank=True, null=True)
+          
