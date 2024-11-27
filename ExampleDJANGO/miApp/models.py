@@ -19,4 +19,6 @@ class Perfil(models.Model):
     descripcion = models.TextField("Sobre mí", blank=True)
     cumpleaños = models.DateField("Cumpleaños", blank=True, null=True)
     telefono = models.CharField("Teléfono", max_length=15, blank=True, null=True)
-            
+    direccion = models.CharField("Dirección", max_length=255, blank=True, null=True)
+
+               
