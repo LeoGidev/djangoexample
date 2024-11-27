@@ -13,3 +13,5 @@ class Dato(models.Model):
         return f"{self.Fecha} - {self.Dato}"
     
 
+class Perfil(models.Model):
+    
