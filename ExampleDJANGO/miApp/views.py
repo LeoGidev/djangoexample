@@ -56,15 +56,21 @@ def agregar_dato(request):
 
 @login_required
 def perfil_usuario(request):
-    # Datos del usuario logueado
-    usuario = request.user  # Obtenemos al usuario actual
+    perfil, created = Perfil.objects.get_or_create(user=request.user)
+
+    if request.method == 'POST':
+        form = PerfilForm(request.POST, request.FILES, instance=perfil)
+        if form.is_valid():
+            form.save()
+            return redirect('perfil')
+    else:
+        form = PerfilForm(instance=perfil)
 
     context = {
-        'nombre': usuario.first_name,
-        'apellido': usuario.last_name,
-        'email': usuario.email,
+        'perfil': perfil,
+        'form': form,
     }
-    return render(request, 'profile.html', context)
+    return render(request, 'perfil.html', context)
 
 
 
