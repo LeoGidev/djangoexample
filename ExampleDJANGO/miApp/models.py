@@ -18,4 +18,5 @@ class Perfil(models.Model):
     foto = models.ImageField(upload_to='fotos_perfil/', blank=True, null=True)
     descripcion = models.TextField("Sobre mí", blank=True)
     cumpleaños = models.DateField("Cumpleaños", blank=True, null=True)
-          
+    telefono = models.CharField("Teléfono", max_length=15, blank=True, null=True)
+            
