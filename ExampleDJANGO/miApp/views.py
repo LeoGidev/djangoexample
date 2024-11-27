@@ -6,6 +6,8 @@ from .models import Dato
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import user_passes_test
 from django.utils import timezone
+from .models import Perfil
+from .forms import PerfilForm
 
 def login_view(request):
     if request.method == 'POST':
