@@ -9,3 +9,5 @@ class PerfilForm(forms.ModelForm):
             'descripcion': forms.Textarea(attrs={'class': 'form-control', 'rows': 4}),
             'cumpleaños': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control'}),
+            'direccion': forms.TextInput(attrs={'class': 'form-control'}),
+        }
