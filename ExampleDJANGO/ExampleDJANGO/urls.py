@@ -16,8 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static  # Necesario para servir archivos estáticos y de medios en desarrollo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('miApp.urls')),
+    path('', include('miApp.urls')),  # Asegúrate de que 'miApp' esté registrada como una app en settings.py
 ]
+
+# Solo sirve archivos de medios en desarrollo
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
