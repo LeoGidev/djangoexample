@@ -22,4 +22,6 @@ class Perfil(models.Model):
     direccion = models.CharField("Dirección", max_length=255, blank=True, null=True)
 
     def __str__(self):
-        return f"Perfil de {self.user.username}"               
+        return f"Perfil de {self.user.username}"    
+
+class PerfilForm(forms.ModelForm):           
