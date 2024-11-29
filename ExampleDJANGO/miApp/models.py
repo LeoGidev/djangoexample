@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Dato(models.Model):
     Fecha = models.DateField(auto_now_add=True)   
