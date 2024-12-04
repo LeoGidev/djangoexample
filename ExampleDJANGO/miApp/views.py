@@ -58,21 +58,7 @@ def agregar_dato(request):
 
 @login_required
 def perfil_usuario(request):
-    perfil, created = Perfil.objects.get_or_create(user=request.user)
-
-    if request.method == 'POST':
-        form = PerfilForm(request.POST, request.FILES, instance=perfil)
-        if form.is_valid():
-            form.save()
-            return redirect('perfil')
-    else:
-        form = PerfilForm(instance=perfil)
-
-    context = {
-        'perfil': perfil,
-        'form': form,
-    }
-    return render(request, 'perfil.html', context)
+    print("hola")
 
 
 
