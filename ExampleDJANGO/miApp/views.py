@@ -60,7 +60,7 @@ def agregar_dato(request):
 def perfil_usuario(request):
     print(f"Método de la solicitud: {request.method}")
     if request.method == "POST":
-        return render(request, "miApp/templates/perfil.html", {"mensaje": "Datos actualizados"})
+        return render(request, "miApp/templates/profile.html", {"mensaje": "Datos actualizados"})
     return render(request, "miApp/templates/profile.html")
 
 
