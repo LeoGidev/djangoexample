@@ -16,7 +16,7 @@ class Dato(models.Model):
 
 class Perfil(models.Model):
     ID = models.AutoField(primary_key=True)
-    #user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='perfil')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='perfil')
     foto = models.ImageField(upload_to='fotos_perfil/', blank=True, null=True)
     descripcion = models.TextField("Sobre mí", blank=True)
     cumpleaños = models.DateField("Cumpleaños", blank=True, null=True)
