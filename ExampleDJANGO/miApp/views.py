@@ -58,13 +58,11 @@ def agregar_dato(request):
 
 @login_required
 def perfil_usuario(request):
-    
+    print(f"Método de la solicitud: {request.method}")
+    if request.method == "POST":
+        return render(request, "miApp/perfil.html", {"mensaje": "Datos actualizados"})
+    return render(request, "miApp/perfil.html")
 
-    context = {
-        'perfil': perfil,
-        'form': form,
-    }
-    return render(request, 'perfil.html', context)
 
 
 
