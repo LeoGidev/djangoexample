@@ -84,7 +84,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'rtqKLO081Klo',
         'HOST': 'localhost',  # o '127.0.0.1'
-        'PORT': '3307',       # puerto por defecto de MySQL
+        'PORT': '3307',       # 
         'OPTIONS': {
             'ssl': {'ca': None},  # Desactivar SSL si no es necesario
         },
